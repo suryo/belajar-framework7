@@ -1,0 +1,30 @@
+{
+  "cwd": "C:\\Users\\WEB-DEV\\Documents\\belajar-framework7",
+  "type": [
+    "cordova"
+  ],
+  "name": "Belajar-Framework7",
+  "pkg": "io.framework7.myapp",
+  "framework": "core",
+  "template": "tabs",
+  "bundler": false,
+  "cordova": {
+    "folder": "cordova",
+    "platforms": [
+      "android"
+    ],
+    "plugins": [
+      "cordova-plugin-statusbar",
+      "cordova-plugin-keyboard",
+      "cordova-plugin-splashscreen"
+    ]
+  },
+  "theming": {
+    "customColor": false,
+    "color": "#007aff",
+    "darkTheme": false,
+    "iconFonts": true,
+    "fillBars": false
+  },
+  "customBuild": false
+}
