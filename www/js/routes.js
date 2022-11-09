@@ -1,6 +1,22 @@
 
 var routes = [
   {
+    path: '/camera/',
+    url: './pages/camera.html',
+  },
+  {
+    path: '/dar/',
+    url: './pages/dar.html',
+  },
+  {
+    path: '/laporan/',
+    url: './pages/laporan.html',
+  },
+  {
+    path: '/cuti/',
+    url: './pages/cuti.html',
+  },
+  {
     path: '/',
     url: './index.html',
   },
