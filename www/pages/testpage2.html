@@ -1,0 +1,63 @@
+<template>
+  <div class="page" data-name="testpage2">
+    <div class="navbar">
+      <div class="navbar-bg"></div>
+      <div class="navbar-inner sliding">
+        <div class="title">DAR REPORT</div>
+      </div>
+    </div>
+    <div class="page-content">
+      <div class="list links-list">
+        <ul>
+          ${news.value.map((product) => $h`
+          <li><a href="#">${product.title}</a></li>
+          `)}
+        </ul>
+      </div>
+     
+      <div class="block">
+        <button class="button button-fill" @click="${addProduct}">
+          Add Product
+        </button>
+      </div>
+     
+    </div>
+  </div>
+</template>
+<script>
+  export default (props, { $store }) => {
+    const news = $store.getters.news;
+
+    app.request
+      .get("http://belajarlaravel.brainwarehub.com/public/api/getnewsapi")
+      .then(function (res) {
+        var res = JSON.parse(res.data);
+        //console.log(res[0].tittle);
+        res.forEach((element) => {
+          console.log("tittle : " + element.tittle);
+          $store.dispatch("addNews", {
+            id: "4",
+            title: element.tittle,
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi tempora similique reiciendis, error nesciunt vero, blanditiis pariatur dolor, minima sed sapiente rerum, dolorem corrupti hic modi praesentium unde saepe perspiciatis.",
+          });
+        });
+      })
+      .catch(function (err) {
+        console.log(err.xhr);
+        console.log(err.status);
+        console.log(err.message);
+      });
+
+    const addProduct = () => {
+      $store.dispatch("addProduct", {
+        id: "4",
+        title: "Apple iPhone 12",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi tempora similique reiciendis, error nesciunt vero, blanditiis pariatur dolor, minima sed sapiente rerum, dolorem corrupti hic modi praesentium unde saepe perspiciatis.",
+      });
+    };
+
+    return $render;
+  };
+</script>

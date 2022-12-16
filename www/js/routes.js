@@ -24,8 +24,32 @@ var routes = [
     url: "./pages/settings.html",
   },
   {
-    path: "/TestPage/",
+    path: "/testpage/",
     url: "./pages/testpage.html",
+    on: {
+      pageAfterIn: function test(e, page) {
+        // do something after page gets into the view
+      },
+      pageInit: function (e, page) {
+        console.log("page init");
+        app.request
+          .get("http://belajarlaravel.brainwarehub.com/public/api/getnewsapi")
+          .then(function (res) {
+            var res = JSON.parse(res.data)
+            console.log(res[0].tittle);
+            
+          })
+          .catch(function (err) {
+            console.log(err.xhr);
+            console.log(err.status);
+            console.log(err.message);
+          });
+      },
+    },
+  },
+  {
+    path: "/testpage2/",
+    componentUrl: "./pages/testpage2.html",
   },
 
   {

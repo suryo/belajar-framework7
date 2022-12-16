@@ -5,7 +5,7 @@ var app = new Framework7({
   name: 'Belajar-Framework7', // App name
   theme: 'auto', // Automatic theme detection
   el: '#app', // App root element
-
+  cache: false, /* disable caching */
   id: 'io.framework7.myapp', // App bundle ID
   // App store
   store: store,
@@ -44,3 +44,7 @@ $('#my-login-screen .login-button').on('click', function () {
   // Alert username and password
   app.dialog.alert('Username: ' + username + '<br/>Password: ' + password);
 });
+
+function test(){
+  alert("test");
+}
